@@ -1,0 +1,44 @@
+name: build
+
+# builds fawwkmenu.asi (32 bit) on github's windows machines, no visual studio needed locally.
+# push this folder to a github repo, open the Actions tab, download the artifact.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  asi:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: configure
+        run: cmake -A Win32 -S . -B build
+
+      - name: build
+        run: cmake --build build --config Release
+
+      - name: package
+        shell: bash
+        run: |
+          mkdir -p dist/lua dist/include
+          cp build/Release/fawwkmenu.asi dist/
+          cp lua/fawwk.lua dist/lua/
+          cp include/fawwk.hpp dist/include/
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fawwkmenu
+          path: dist/
+
+  core-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: core unit test
+        run: |
+          sudo apt-get update && sudo apt-get install -y liblua5.4-dev g++
+          g++ -std=c++17 -O1 -Wall -o /tmp/bridge tests/native_bridge.cpp src/core/*.cpp -llua5.4 -lpthread
+          /tmp/bridge tests/native_sdk_test.lua "$PWD"
