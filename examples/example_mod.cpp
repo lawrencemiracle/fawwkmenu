@@ -1,4 +1,5 @@
 // example_mod.cpp
+// part of fawwk menu, made by fawwktrustdigital (MIT licence).
 // the smallest useful asi that talks to fawwk menu. build it as a normal 32 bit
 // dll renamed to .asi, with fawwk.hpp on the include path.
 #define WIN32_LEAN_AND_MEAN

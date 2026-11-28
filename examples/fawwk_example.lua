@@ -1,9 +1,10 @@
 script_name('fawwk example')
-script_author('fawwk')
+script_author('fawwktrustdigital')
 script_version('1.0.0')
 
--- a throwaway mod that shows every control type. delete it once you've
--- copied what you need into your own script.
+-- part of fawwk menu, made by fawwktrustdigital (MIT licence).
+-- a small mod that shows every control type. copy what you need into
+-- your own script and delete the rest.
 
 local function fawwkSdk()
     local ok, sdk = pcall(function()
