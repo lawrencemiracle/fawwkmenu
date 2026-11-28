@@ -1,5 +1,5 @@
 -- fawwk.lua
--- part of fawwk menu, made by fawwktrustdigital.
+-- part of fawwk menu, made by fawwktrustdigital (MIT licence).
 -- settings sdk for fawwk menu. put it in moonloader/lib and require 'fawwk'.
 -- if the menu (fawwkmenu.asi) isn't installed your mod just runs on its defaults.
 
