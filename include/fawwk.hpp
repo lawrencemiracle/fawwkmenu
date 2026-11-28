@@ -1,5 +1,5 @@
 // fawwk.hpp
-// part of fawwk menu, made by fawwktrustdigital.
+// part of fawwk menu, made by fawwktrustdigital (MIT licence).
 // header-only client for fawwk menu, for asi / c++ mods.
 // copy this one file into your project. no libs to link, it finds the menu at runtime.
 //
